@@ -7,32 +7,23 @@
 //
 
 #import "DLIntrospectionTests.h"
-#import "DLIntrospection.h"
+#import "TestObject.h"
 #import "NSObject+DLIntrospection.h"
 
 @implementation DLIntrospectionTests
 
-- (void)setUp {
-    [super setUp];
+- (void)testProperties {
+    NSLog(@"%@", [TestObject properties]);
+}
+- (void)testProtocols {
+    NSArray *protocols = [TestObject protocols];
+    
+   // STAssertEquals([protocols count], 1, @"");
+    NSLog(@"%@", [TestObject protocols]);
 }
 
-- (void)tearDown {
-    [super tearDown];
-}
-
-- (void)testExample {
-    NSLog(@"%@",[DLIntrospection properties]);
+- (void)testInstanceMethods {
     
-    //NSLog(@"%@",[NSObject protocols]);
-    //NSLog(@"%@", [NSClassFromString(@"UIView") methods]);
-    //NSLog(@"%@", [NSObject instanceMethods]);
-    //NSLog(@"%@", [NSObject classMethods]);
-
-
-    //NSLog(@"%@", [NSClassFromString(@"UIViewController") parentClassHierarchy]);
-    //NSLog(@"%@", [NSClassFromString(@"UIView") ivars]);
-    
-    //рекурсивное дерево классов, например
 }
 
 @end

@@ -6,16 +6,20 @@
 //  Copyright (c) 2012 Denis Lebedev. All rights reserved.
 //
 
-#import "DLIntrospection.h"
+#import "TestObject.h"
 
 #import <objc/runtime.h>
 
-@implementation DLIntrospection
+@implementation TestObject
 
 @synthesize firstProperty = _myCustomIvarName;
 
 - (void)method1 {
     ;
+}
+
+- (void)method2 {
+    
 }
 - (id)init
 {

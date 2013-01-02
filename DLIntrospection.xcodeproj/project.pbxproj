@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D44795816942E5B00D23EC7 /* TestObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DCCC1B8168CC11F00EEEA9D /* TestObject.m */; };
 		1DCCC1B2168CC11F00EEEA9D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DCCC1B1168CC11F00EEEA9D /* Foundation.framework */; };
-		1DCCC1B7168CC11F00EEEA9D /* DLIntrospection.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1DCCC1B6168CC11F00EEEA9D /* DLIntrospection.h */; };
-		1DCCC1B9168CC11F00EEEA9D /* DLIntrospection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DCCC1B8168CC11F00EEEA9D /* DLIntrospection.m */; };
+		1DCCC1B7168CC11F00EEEA9D /* TestObject.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1DCCC1B6168CC11F00EEEA9D /* TestObject.h */; };
 		1DCCC1C1168CC11F00EEEA9D /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DCCC1C0168CC11F00EEEA9D /* SenTestingKit.framework */; };
 		1DCCC1C3168CC11F00EEEA9D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DCCC1C2168CC11F00EEEA9D /* UIKit.framework */; };
 		1DCCC1C4168CC11F00EEEA9D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DCCC1B1168CC11F00EEEA9D /* Foundation.framework */; };
@@ -36,7 +36,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
-				1DCCC1B7168CC11F00EEEA9D /* DLIntrospection.h in CopyFiles */,
+				1DCCC1B7168CC11F00EEEA9D /* TestObject.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,8 +46,8 @@
 		1DCCC1AE168CC11F00EEEA9D /* libDLIntrospection.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDLIntrospection.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DCCC1B1168CC11F00EEEA9D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1DCCC1B5168CC11F00EEEA9D /* DLIntrospection-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DLIntrospection-Prefix.pch"; sourceTree = "<group>"; };
-		1DCCC1B6168CC11F00EEEA9D /* DLIntrospection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DLIntrospection.h; sourceTree = "<group>"; };
-		1DCCC1B8168CC11F00EEEA9D /* DLIntrospection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DLIntrospection.m; sourceTree = "<group>"; };
+		1DCCC1B6168CC11F00EEEA9D /* TestObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TestObject.h; path = ../DLIntrospection/TestObject.h; sourceTree = "<group>"; };
+		1DCCC1B8168CC11F00EEEA9D /* TestObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TestObject.m; path = ../DLIntrospection/TestObject.m; sourceTree = "<group>"; };
 		1DCCC1BF168CC11F00EEEA9D /* DLIntrospectionTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DLIntrospectionTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DCCC1C0168CC11F00EEEA9D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		1DCCC1C2168CC11F00EEEA9D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -114,8 +114,6 @@
 		1DCCC1B3168CC11F00EEEA9D /* DLIntrospection */ = {
 			isa = PBXGroup;
 			children = (
-				1DCCC1B6168CC11F00EEEA9D /* DLIntrospection.h */,
-				1DCCC1B8168CC11F00EEEA9D /* DLIntrospection.m */,
 				1DCCC1D9168CEA8D00EEEA9D /* NSObject+DLIntrospection.h */,
 				1DCCC1DA168CEA8D00EEEA9D /* NSObject+DLIntrospection.m */,
 				1DCCC1B4168CC11F00EEEA9D /* Supporting Files */,
@@ -134,6 +132,8 @@
 		1DCCC1C8168CC11F00EEEA9D /* DLIntrospectionTests */ = {
 			isa = PBXGroup;
 			children = (
+				1DCCC1B6168CC11F00EEEA9D /* TestObject.h */,
+				1DCCC1B8168CC11F00EEEA9D /* TestObject.m */,
 				1DCCC1CE168CC11F00EEEA9D /* DLIntrospectionTests.h */,
 				1DCCC1CF168CC11F00EEEA9D /* DLIntrospectionTests.m */,
 				1DCCC1C9168CC11F00EEEA9D /* Supporting Files */,
@@ -248,7 +248,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DCCC1B9168CC11F00EEEA9D /* DLIntrospection.m in Sources */,
 				1DCCC1DB168CEA8D00EEEA9D /* NSObject+DLIntrospection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,6 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DCCC1D0168CC11F00EEEA9D /* DLIntrospectionTests.m in Sources */,
+				1D44795816942E5B00D23EC7 /* TestObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +411,7 @@
 				1DCCC1D5168CC11F00EEEA9D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1DCCC1D6168CC11F00EEEA9D /* Build configuration list for PBXNativeTarget "DLIntrospectionTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +420,7 @@
 				1DCCC1D8168CC11F00EEEA9D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

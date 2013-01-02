@@ -17,6 +17,7 @@
 
 @implementation NSString (DLIntrospection)
 
+//https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtTypeEncodings.html
 + (NSString *)decodeType:(const char *)cString {
     if (!strcmp(cString, @encode(id))) return @"id";
     if (!strcmp(cString, @encode(void))) return @"void";
@@ -123,15 +124,29 @@ static void getSuper(Class class, NSMutableString *result) {
 + (NSArray *)protocols {
     unsigned int outCount;
     Protocol * const *protocols = class_copyProtocolList([self class], &outCount);
+
     NSMutableArray *result = [NSMutableArray array];
     for (int i = 0; i < outCount; i++) {
-        [result addObject:[NSString stringWithCString:protocol_getName(protocols[i]) encoding:NSUTF8StringEncoding]];
+        unsigned int adoptedCount;
+        Protocol * const *adotedProtocols = protocol_copyProtocolList(protocols[i], &adoptedCount);
+        NSString *protocolName = [NSString stringWithCString:protocol_getName(protocols[i]) encoding:NSUTF8StringEncoding];
+
+        NSMutableArray *adoptedProtocolNames = [NSMutableArray array];
+        for (int idx = 0; idx < adoptedCount; idx++) {
+            [adoptedProtocolNames addObject:[NSString stringWithCString:protocol_getName(adotedProtocols[idx]) encoding:NSUTF8StringEncoding]];
+        }
+        NSString *protocolDescription = protocolName;
+        
+        if (adoptedProtocolNames.count) {
+            protocolDescription = [NSString stringWithFormat:@"%@ <%@>", protocolName, [adoptedProtocolNames componentsJoinedByString:@", "]];
+        }
+        [result addObject:protocolDescription];
+        free((__bridge void *)(*adotedProtocols));
     }
     free((__bridge void *)(*protocols));
     //protocol_copyMethodDescriptionList
     return result.count ? [result copy] : nil;
 }
-
 
 + (NSString *)parentClassHierarchy {
     NSMutableString *result = [NSMutableString string];

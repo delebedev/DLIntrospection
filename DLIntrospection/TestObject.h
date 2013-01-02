@@ -8,7 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DLIntrospection : NSObject
+@protocol MyBaseProtocol <NSObject>
+
+@end
+
+@protocol MyProtocol <MyBaseProtocol>
+
+@end
+
+@interface TestObject : NSObject <MyProtocol, MyBaseProtocol>
 
 @property (nonatomic, strong) NSObject *firstProperty;
 @property (atomic, copy) id secondProperty;
