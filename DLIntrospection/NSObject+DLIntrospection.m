@@ -30,12 +30,11 @@
     if (!strcmp(cString, @encode(SEL))) return @"SEL";
     if (!strcmp(cString, @encode(unsigned int))) return @"unsigned int";
 
-#warning * for reference types (NSObject *)
 //@TODO: do handle bitmasks
     NSString *result = [NSString stringWithCString:cString encoding:NSUTF8StringEncoding];
-    if ([[result substringToIndex:1] isEqualToString:@"@"]) {
-        result = [result substringWithRange:NSMakeRange(2, result.length - 3)];
-    }
+    if ([[result substringToIndex:1] isEqualToString:@"@"] && [result rangeOfString:@"?"].location == NSNotFound) {
+        result = [[result substringWithRange:NSMakeRange(2, result.length - 3)] stringByAppendingString:@"*"];
+    } else
     if ([[result substringToIndex:1] isEqualToString:@"^"]) {
         result = [NSString stringWithFormat:@"%@ *",
                    [NSString decodeType:[[result substringFromIndex:1] cStringUsingEncoding:NSUTF8StringEncoding]]];
@@ -52,6 +51,16 @@ static void getSuper(Class class, NSMutableString *result) {
 
 
 @implementation NSObject (DLIntrospection)
+
++ (NSArray *)classes {
+    unsigned int classesCount;
+    Class *classes = objc_copyClassList(&classesCount);
+    NSMutableArray *result = [NSMutableArray array];
+    for (int i = 0 ; i < classesCount; i++) {
+        [result addObject:NSStringFromClass(classes[i])];
+    }
+    return [result sortedArrayUsingSelector:@selector(compare:)];
+}
 
 + (NSArray *)classMethods {
     return [self methodsForClass:object_getClass([self class]) typeFormat:@"+"];
@@ -72,7 +81,7 @@ static void getSuper(Class class, NSMutableString *result) {
     return result.count ? [result copy] : nil;
 }
 
-+ (NSArray *)ivars {
++ (NSArray *)instanceVariables {
     unsigned int outCount;
     Ivar *ivars = class_copyIvarList([self class], &outCount);
     NSMutableArray *result = [NSMutableArray array];
@@ -82,7 +91,7 @@ static void getSuper(Class class, NSMutableString *result) {
         NSString *ivarDescription = [NSString stringWithFormat:@"%@ %@", type, name];
         [result addObject:ivarDescription];
     }
-    free((void *)(*ivars));
+    free(ivars);
     return result.count ? [result copy] : nil;
 }
 
@@ -106,9 +115,9 @@ static void getSuper(Class class, NSMutableString *result) {
             protocolDescription = [NSString stringWithFormat:@"%@ <%@>", protocolName, [adoptedProtocolNames componentsJoinedByString:@", "]];
         }
         [result addObject:protocolDescription];
-        free((__bridge void *)(*adotedProtocols));
+        //free(adotedProtocols);
     }
-    free((__bridge void *)(*protocols));
+    //free((__bridge void *)(*protocols));
     return result.count ? [result copy] : nil;
 }
 
@@ -126,9 +135,15 @@ static void getSuper(Class class, NSMutableString *result) {
         [propertyDescriptions addObject:[self formattedPropery:properties[i]]];
     }
     
-    [methodsAndProperties setObject:requiredMethods forKey:@"@required"];
-    [methodsAndProperties setObject:optionalMethods forKey:@"@optional"];
-    [methodsAndProperties setObject:[propertyDescriptions copy] forKey:@"@properties"];
+    if (requiredMethods.count) {
+        [methodsAndProperties setObject:requiredMethods forKey:@"@required"];
+    }
+    if (optionalMethods.count) {
+        [methodsAndProperties setObject:optionalMethods forKey:@"@optional"];
+    } if (propertyDescriptions.count) {
+        [methodsAndProperties setObject:[propertyDescriptions copy] forKey:@"@properties"];
+    }
+    
     free(properties);
     return methodsAndProperties.count ? [methodsAndProperties copy ] : nil;
 }
@@ -164,7 +179,7 @@ static void getSuper(Class class, NSMutableString *result) {
         }
         [result addObject:[selParts componentsJoinedByString:@" "]];
     }
-    free((void *)(*methods));
+    free(methods);
     return result.count ? [result copy] : nil;
 }
 

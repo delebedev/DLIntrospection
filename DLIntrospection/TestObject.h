@@ -31,11 +31,14 @@
 
 @end
 
-@interface TestObject : NSObject <MyProtocol, MyBaseProtocol>
+@interface TestObject : NSObject <MyProtocol, MyBaseProtocol> {
+    NSInteger ivar1;
+    NSObject *ivar2;
+    id ivar3;
+}
 
 @property (nonatomic, strong) NSObject *firstProperty;
 @property (atomic, copy) id secondProperty;
-
 @property (atomic, assign) char *charProperty;
 @property (atomic, assign) int *ptrProperty;
 

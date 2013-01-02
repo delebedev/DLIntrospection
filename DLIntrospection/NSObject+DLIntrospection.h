@@ -10,14 +10,15 @@
 
 @interface NSObject (DLIntrospection)
 
++ (NSArray *)classes;
 + (NSArray *)properties;
-+ (NSArray *)ivars;
++ (NSArray *)instanceVariables;
 + (NSArray *)classMethods;
 + (NSArray *)instanceMethods;
 
++ (NSArray *)protocols;
 + (NSDictionary *)descriptionForProtocol:(Protocol *)proto;
 
-+ (NSArray *)protocols;
 
 + (NSString *)parentClassHierarchy;
 @end
