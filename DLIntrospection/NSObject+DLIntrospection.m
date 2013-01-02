@@ -30,6 +30,7 @@
     if (!strcmp(cString, @encode(SEL))) return @"SEL";
     if (!strcmp(cString, @encode(unsigned int))) return @"unsigned int";
 
+#warning * for reference types (NSObject *)
 //@TODO: do handle bitmasks
     NSString *result = [NSString stringWithCString:cString encoding:NSUTF8StringEncoding];
     if ([[result substringToIndex:1] isEqualToString:@"@"]) {
@@ -49,6 +50,7 @@ static void getSuper(Class class, NSMutableString *result) {
     if ([class superclass]) { getSuper([class superclass], result); }
 }
 
+
 @implementation NSObject (DLIntrospection)
 
 + (NSArray *)classMethods {
@@ -63,45 +65,8 @@ static void getSuper(Class class, NSMutableString *result) {
     unsigned int outCount;
     objc_property_t *properties = class_copyPropertyList([self class], &outCount);
     NSMutableArray *result = [NSMutableArray array];
-    for (int i = 0; i < outCount; i++) {
-        unsigned int attrCount;
-        objc_property_attribute_t *attrs = property_copyAttributeList(properties[i], &attrCount);
-        NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
-        for (int idx = 0; idx < attrCount; idx++) {
-            NSString *name = [NSString stringWithCString:attrs[idx].name encoding:NSUTF8StringEncoding];
-            NSString *value = [NSString stringWithCString:attrs[idx].value encoding:NSUTF8StringEncoding];
-            [attributes setObject:value forKey:name];
-        }
-        free(attrs);
-        NSMutableString *property = [NSMutableString stringWithFormat:@"@property "];
-        NSMutableArray *attrsArray = [NSMutableArray array];
-
-//https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtPropertyIntrospection.html#//apple_ref/doc/uid/TP40008048-CH101-SW5
-        [attrsArray addObject:[attributes objectForKey:@"N"] ? @"nonatomic" : @"atomic"];
-        
-        if ([attributes objectForKey:@"&"]) {
-            [attrsArray addObject:@"strong"];
-        } else if ([attributes objectForKey:@"C"]) {
-            [attrsArray addObject:@"copy"];
-        } else if ([attributes objectForKey:@"W"]) {
-            [attrsArray addObject:@"weak"];
-        } else {
-            [attrsArray addObject:@"assign"];
-        }
-        if ([attributes objectForKey:@"R"]) {[attrsArray addObject:@"readonly"];}
-        if ([attributes objectForKey:@"G"]) {
-            [attrsArray addObject:[NSString stringWithFormat:@"getter=%@", [attributes objectForKey:@"G"]]];
-        }
-        if ([attributes objectForKey:@"S"]) {
-            [attrsArray addObject:[NSString stringWithFormat:@"setter=%@", [attributes objectForKey:@"G"]]];
-        }
-        
-        [property appendFormat:@"(%@) %@ %@",
-         [attrsArray componentsJoinedByString:@", "],
-         [NSString decodeType:[[attributes objectForKey:@"T"] cStringUsingEncoding:NSUTF8StringEncoding]],
-         [NSString stringWithCString:property_getName(properties[i]) encoding:NSUTF8StringEncoding]];
-        
-        [result addObject:property];
+    for (int i = 0; i < outCount; i++) {        
+        [result addObject:[self formattedPropery:properties[i]]];
     }
     free(properties);
     return result.count ? [result copy] : nil;
@@ -144,8 +109,28 @@ static void getSuper(Class class, NSMutableString *result) {
         free((__bridge void *)(*adotedProtocols));
     }
     free((__bridge void *)(*protocols));
-    //protocol_copyMethodDescriptionList
     return result.count ? [result copy] : nil;
+}
+
++ (NSDictionary *)descriptionForProtocol:(Protocol *)proto {
+    NSMutableDictionary *methodsAndProperties = [NSMutableDictionary dictionary];
+    
+    NSArray *requiredMethods = [[[self class] formattedMethodsForProtocol:proto required:YES instance:NO] arrayByAddingObjectsFromArray:[[self class]formattedMethodsForProtocol:proto required:YES instance:YES]];
+    
+    NSArray *optionalMethods = [[[self class] formattedMethodsForProtocol:proto required:NO instance:NO] arrayByAddingObjectsFromArray:[[self class]formattedMethodsForProtocol:proto required:NO instance:YES]];
+
+    unsigned int propertiesCount;
+    NSMutableArray *propertyDescriptions = [NSMutableArray array];
+    objc_property_t *properties = protocol_copyPropertyList(proto, &propertiesCount);
+    for (int i = 0; i < propertiesCount; i++) {
+        [propertyDescriptions addObject:[self formattedPropery:properties[i]]];
+    }
+    
+    [methodsAndProperties setObject:requiredMethods forKey:@"@required"];
+    [methodsAndProperties setObject:optionalMethods forKey:@"@optional"];
+    [methodsAndProperties setObject:[propertyDescriptions copy] forKey:@"@properties"];
+    free(properties);
+    return methodsAndProperties.count ? [methodsAndProperties copy ] : nil;
 }
 
 + (NSString *)parentClassHierarchy {
@@ -183,4 +168,60 @@ static void getSuper(Class class, NSMutableString *result) {
     return result.count ? [result copy] : nil;
 }
 
++ (NSArray *)formattedMethodsForProtocol:(Protocol *)proto required:(BOOL)required instance:(BOOL)instance {
+    unsigned int methodCount;
+    struct objc_method_description *methods = protocol_copyMethodDescriptionList(proto, required, instance, &methodCount);
+    NSMutableArray *methodsDescription = [NSMutableArray array];
+    for (int i = 0; i < methodCount; i++) {
+        [methodsDescription addObject:
+         [NSString stringWithFormat:@"%@ (%@)%@",
+          instance ? @"-" : @"+",
+#warning return correct type
+          @"void",
+          NSStringFromSelector(methods[i].name)]];
+    }
+    
+    free(methods);
+    return  [methodsDescription copy];
+}
+
++ (NSString *)formattedPropery:(objc_property_t)prop {
+    unsigned int attrCount;
+    objc_property_attribute_t *attrs = property_copyAttributeList(prop, &attrCount);
+    NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
+    for (int idx = 0; idx < attrCount; idx++) {
+        NSString *name = [NSString stringWithCString:attrs[idx].name encoding:NSUTF8StringEncoding];
+        NSString *value = [NSString stringWithCString:attrs[idx].value encoding:NSUTF8StringEncoding];
+        [attributes setObject:value forKey:name];
+    }
+    free(attrs);
+    NSMutableString *property = [NSMutableString stringWithFormat:@"@property "];
+    NSMutableArray *attrsArray = [NSMutableArray array];
+    
+    //https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtPropertyIntrospection.html#//apple_ref/doc/uid/TP40008048-CH101-SW5
+    [attrsArray addObject:[attributes objectForKey:@"N"] ? @"nonatomic" : @"atomic"];
+    
+    if ([attributes objectForKey:@"&"]) {
+        [attrsArray addObject:@"strong"];
+    } else if ([attributes objectForKey:@"C"]) {
+        [attrsArray addObject:@"copy"];
+    } else if ([attributes objectForKey:@"W"]) {
+        [attrsArray addObject:@"weak"];
+    } else {
+        [attrsArray addObject:@"assign"];
+    }
+    if ([attributes objectForKey:@"R"]) {[attrsArray addObject:@"readonly"];}
+    if ([attributes objectForKey:@"G"]) {
+        [attrsArray addObject:[NSString stringWithFormat:@"getter=%@", [attributes objectForKey:@"G"]]];
+    }
+    if ([attributes objectForKey:@"S"]) {
+        [attrsArray addObject:[NSString stringWithFormat:@"setter=%@", [attributes objectForKey:@"G"]]];
+    }
+    
+    [property appendFormat:@"(%@) %@ %@",
+     [attrsArray componentsJoinedByString:@", "],
+     [NSString decodeType:[[attributes objectForKey:@"T"] cStringUsingEncoding:NSUTF8StringEncoding]],
+     [NSString stringWithCString:property_getName(prop) encoding:NSUTF8StringEncoding]];
+    return [property copy];
+}
 @end

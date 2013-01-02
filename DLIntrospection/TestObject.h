@@ -10,9 +10,24 @@
 
 @protocol MyBaseProtocol <NSObject>
 
+@property (nonatomic, strong) NSObject *delegate;
+
 @end
 
 @protocol MyProtocol <MyBaseProtocol>
+
+
+@required
+- (void)myProtocolRequiredMethodOne;
+- (id)myProtocolRequiredMethodTwo;
++ (NSInteger)myProtocolRequiredClassMethod;
+
+
+
+@optional
+- (void)myProtocolOptionalMethodOne;
++ (NSInteger)myProtocolOptionalClassMethod;
+
 
 @end
 

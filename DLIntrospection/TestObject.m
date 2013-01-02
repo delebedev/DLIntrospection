@@ -12,14 +12,16 @@
 
 @implementation TestObject
 
+@synthesize delegate;
 @synthesize firstProperty = _myCustomIvarName;
 
 - (void)method1 {
     ;
+
 }
 
 - (void)method2 {
-    
+    ;
 }
 - (id)init
 {
@@ -48,6 +50,18 @@
 }
 
 - (NSArray *)method3 {
+    return [NSArray array];
+}
+
+- (void)myProtocolRequiredMethodOne {
     
+}
+
+- (id)myProtocolRequiredMethodTwo {
+    return nil;
+}
+
++ (NSInteger)myProtocolRequiredClassMethod {
+    return 10;
 }
 @end

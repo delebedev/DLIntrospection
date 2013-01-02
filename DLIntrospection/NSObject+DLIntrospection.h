@@ -15,6 +15,8 @@
 + (NSArray *)classMethods;
 + (NSArray *)instanceMethods;
 
++ (NSDictionary *)descriptionForProtocol:(Protocol *)proto;
+
 + (NSArray *)protocols;
 
 + (NSString *)parentClassHierarchy;

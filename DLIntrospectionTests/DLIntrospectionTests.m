@@ -26,4 +26,8 @@
     
 }
 
+- (void)testProtocolDescription {
+    NSLog(@"%@", [NSObject descriptionForProtocol:@protocol(MyProtocol)]);
+}
+
 @end
