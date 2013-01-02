@@ -16,6 +16,7 @@
 		1DCCC1C7168CC11F00EEEA9D /* libDLIntrospection.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DCCC1AE168CC11F00EEEA9D /* libDLIntrospection.a */; };
 		1DCCC1CD168CC11F00EEEA9D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1DCCC1CB168CC11F00EEEA9D /* InfoPlist.strings */; };
 		1DCCC1D0168CC11F00EEEA9D /* DLIntrospectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DCCC1CF168CC11F00EEEA9D /* DLIntrospectionTests.m */; };
+		1DCCC1DB168CEA8D00EEEA9D /* NSObject+DLIntrospection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DCCC1DA168CEA8D00EEEA9D /* NSObject+DLIntrospection.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,8 @@
 		1DCCC1CC168CC11F00EEEA9D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1DCCC1CE168CC11F00EEEA9D /* DLIntrospectionTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DLIntrospectionTests.h; sourceTree = "<group>"; };
 		1DCCC1CF168CC11F00EEEA9D /* DLIntrospectionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DLIntrospectionTests.m; sourceTree = "<group>"; };
+		1DCCC1D9168CEA8D00EEEA9D /* NSObject+DLIntrospection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+DLIntrospection.h"; sourceTree = "<group>"; };
+		1DCCC1DA168CEA8D00EEEA9D /* NSObject+DLIntrospection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+DLIntrospection.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +116,8 @@
 			children = (
 				1DCCC1B6168CC11F00EEEA9D /* DLIntrospection.h */,
 				1DCCC1B8168CC11F00EEEA9D /* DLIntrospection.m */,
+				1DCCC1D9168CEA8D00EEEA9D /* NSObject+DLIntrospection.h */,
+				1DCCC1DA168CEA8D00EEEA9D /* NSObject+DLIntrospection.m */,
 				1DCCC1B4168CC11F00EEEA9D /* Supporting Files */,
 			);
 			path = DLIntrospection;
@@ -244,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DCCC1B9168CC11F00EEEA9D /* DLIntrospection.m in Sources */,
+				1DCCC1DB168CEA8D00EEEA9D /* NSObject+DLIntrospection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +364,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DLIntrospection/DLIntrospection-Prefix.pch";
 				INFOPLIST_FILE = "DLIntrospectionTests/DLIntrospectionTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -373,6 +383,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DLIntrospection/DLIntrospection-Prefix.pch";
 				INFOPLIST_FILE = "DLIntrospectionTests/DLIntrospectionTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};

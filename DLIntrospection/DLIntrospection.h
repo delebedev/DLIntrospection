@@ -10,4 +10,16 @@
 
 @interface DLIntrospection : NSObject
 
+@property (nonatomic, strong) NSObject *firstProperty;
+@property (atomic, copy) id secondProperty;
+
+@property (atomic, assign) char *charProperty;
+@property (atomic, assign) int *ptrProperty;
+
+@property (atomic, assign, getter = isThirdProperty) BOOL thirdProperty;
+
+- (void)method1;
+- (void)method2;
+- (NSArray *)method3;
+
 @end

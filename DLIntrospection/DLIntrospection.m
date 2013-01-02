@@ -8,6 +8,42 @@
 
 #import "DLIntrospection.h"
 
+#import <objc/runtime.h>
+
 @implementation DLIntrospection
 
+@synthesize firstProperty = _myCustomIvarName;
+
+- (void)method1 {
+    ;
+}
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        int numClasses;
+        Class * classes = NULL;
+        
+        classes = NULL;
+        numClasses = objc_getClassList(NULL, 0);
+        
+        if (numClasses > 0 )
+        {
+            classes = (Class*)malloc(sizeof(Class) * numClasses);
+            numClasses = objc_getClassList(classes, numClasses);
+        }
+        
+        for (int i = 0 ; i < numClasses; i++) {
+            //NSLog(@"%@", NSStringFromClass(classes[i]));
+        }
+        
+        free(classes);
+
+    }
+    return self;
+}
+
+- (NSArray *)method3 {
+    
+}
 @end
