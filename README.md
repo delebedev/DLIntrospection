@@ -83,3 +83,7 @@ NSLog(@"%@", [NSObject descriptionForProtocol:@protocol(NSObject)]);
 
 1. Not all argument types are handled yet (structs, bitmasks);
 2. return and arguments types of protocol methods are not parsed yet.
+
+##LICENSE
+
+[Beerware](https://en.wikipedia.org/wiki/Beerware)
