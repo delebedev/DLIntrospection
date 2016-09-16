@@ -79,6 +79,14 @@ NSLog(@"%@", [NSObject descriptionForProtocol:@protocol(NSObject)]);
         "- (void)class"
     );
 ```
+
+## Bindings:
+
+There also exists an `OCaml` binding so you can play use the code
+interactively with the `utop` repl, see
+[here](https://github.com/fxfactorial/ocaml-objc) under the
+`Introspect` module.
+
 ##Known issues:
 
 1. Not all argument types are handled yet (structs, bitmasks);
