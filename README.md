@@ -87,11 +87,11 @@ interactively with the `utop` repl, see
 [here](https://github.com/fxfactorial/ocaml-objc) under the
 `Introspect` module.
 
-##Known issues:
+## Known issues:
 
 1. Not all argument types are handled yet (structs, bitmasks);
 2. return and arguments types of protocol methods are not parsed yet.
 
-##LICENSE
+## LICENSE
 
 [Beerware](https://en.wikipedia.org/wiki/Beerware)
