@@ -2,36 +2,14 @@
 //  DLIntrospectionTests.m
 //  DLIntrospectionTests
 //
-//  Created by Broccoli on 2018/11/1.
-//  Copyright © 2018 Denis Lebedev. All rights reserved.
+//  Created by Denis Lebedev on 12/27/12.
+//  Copyright (c) 2012 Denis Lebedev. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
 #import "NSObject+DLIntrospection.h"
 
 @interface TestObject : NSObject<NSCopying>
-//
-//if (!strcmp(cString, @encode(char))) return @"char";
-//if (!strcmp(cString, @encode(int))) return @"int";
-//if (!strcmp(cString, @encode(short))) return @"short";
-//if (!strcmp(cString, @encode(long))) return @"long";
-//if (!strcmp(cString, @encode(long long))) return @"long long";
-//
-//if (!strcmp(cString, @encode(unsigned char))) return @"unsigned char";
-//if (!strcmp(cString, @encode(unsigned int))) return @"unsigned int";
-//if (!strcmp(cString, @encode(unsigned short))) return @"unsigned short";
-//if (!strcmp(cString, @encode(unsigned long))) return @"unsigned long";
-//if (!strcmp(cString, @encode(unsigned long long))) return @"unsigned long long";
-//
-//if (!strcmp(cString, @encode(float))) return @"float";
-//if (!strcmp(cString, @encode(double))) return @"double";
-//
-//if (!strcmp(cString, @encode(BOOL))) return @"BOOL";
-//if (!strcmp(cString, @encode(void))) return @"void";
-//if (!strcmp(cString, @encode(char *))) return @"char *";
-//if (!strcmp(cString, @encode(id))) return @"id";
-//if (!strcmp(cString, @encode(Class))) return @"class";
-//if (!strcmp(cString, @encode(SEL))) return @"SEL";
 
 @property (nonatomic, assign) char charProperty;
 @property (nonatomic, assign) int intProperty;
@@ -69,14 +47,6 @@
 @end
 
 @implementation DLIntrospectionTests
-
-- (void)setUp {
-    // Put setup code here. This method is called before the invocation of each test method in the class.
-}
-
-- (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-}
 
 - (void)testProperties {
     NSArray *propertes = [TestObject properties];
