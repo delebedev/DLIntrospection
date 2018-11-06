@@ -19,17 +19,28 @@
 
 //https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtTypeEncodings.html
 + (NSString *)decodeType:(const char *)cString {
-    if (!strcmp(cString, @encode(id))) return @"id";
-    if (!strcmp(cString, @encode(void))) return @"void";
-    if (!strcmp(cString, @encode(float))) return @"float";
+    if (!strcmp(cString, @encode(char))) return @"char";
     if (!strcmp(cString, @encode(int))) return @"int";
-    if (!strcmp(cString, @encode(BOOL))) return @"BOOL";
-    if (!strcmp(cString, @encode(char *))) return @"char *";
+    if (!strcmp(cString, @encode(short))) return @"short";
+    if (!strcmp(cString, @encode(long))) return @"long";
+    if (!strcmp(cString, @encode(long long))) return @"long long";
+    
+    if (!strcmp(cString, @encode(unsigned char))) return @"unsigned char";
+    if (!strcmp(cString, @encode(unsigned int))) return @"unsigned int";
+    if (!strcmp(cString, @encode(unsigned short))) return @"unsigned short";
+    if (!strcmp(cString, @encode(unsigned long))) return @"unsigned long";
+    if (!strcmp(cString, @encode(unsigned long long))) return @"unsigned long long";
+    
+    if (!strcmp(cString, @encode(float))) return @"float";
     if (!strcmp(cString, @encode(double))) return @"double";
+    
+    if (!strcmp(cString, @encode(BOOL))) return @"BOOL";
+    if (!strcmp(cString, @encode(void))) return @"void";
+    if (!strcmp(cString, @encode(char *))) return @"char *";
+    if (!strcmp(cString, @encode(id))) return @"id";
     if (!strcmp(cString, @encode(Class))) return @"class";
     if (!strcmp(cString, @encode(SEL))) return @"SEL";
-    if (!strcmp(cString, @encode(unsigned int))) return @"unsigned int";
-
+    
 //@TODO: do handle bitmasks
     NSString *result = [NSString stringWithCString:cString encoding:NSUTF8StringEncoding];
     if ([[result substringToIndex:1] isEqualToString:@"@"] && [result rangeOfString:@"?"].location == NSNotFound) {
@@ -170,9 +181,9 @@ static void getSuper(Class class, NSMutableString *result) {
         NSMutableArray *selParts = [[methodDescription componentsSeparatedByString:@":"] mutableCopy];
         NSInteger offset = 2; //1-st arg is object (@), 2-nd is SEL (:)
         
-        for (int idx = offset; idx < args; idx++) {
-            NSString *returnType = [NSString decodeType:method_copyArgumentType(methods[i], idx)];
-            selParts[idx - offset] = [NSString stringWithFormat:@"%@:(%@)arg%d",
+        for (NSUInteger idx = offset; idx < args; idx++) {
+            NSString *returnType = [NSString decodeType:method_copyArgumentType(methods[i], (unsigned int)idx)];
+            selParts[idx - offset] = [NSString stringWithFormat:@"%@:(%@)arg%lu",
                                       selParts[idx - offset],
                                       returnType,
                                       idx - 2];

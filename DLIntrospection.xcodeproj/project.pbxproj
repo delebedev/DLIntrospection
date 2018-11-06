@@ -7,19 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1D44795B1694743800D23EC7 /* TestObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D44795A1694743800D23EC7 /* TestObject.m */; };
 		1DCCC1B2168CC11F00EEEA9D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DCCC1B1168CC11F00EEEA9D /* Foundation.framework */; };
-		1DCCC1C1168CC11F00EEEA9D /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DCCC1C0168CC11F00EEEA9D /* SenTestingKit.framework */; };
-		1DCCC1C3168CC11F00EEEA9D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DCCC1C2168CC11F00EEEA9D /* UIKit.framework */; };
-		1DCCC1C4168CC11F00EEEA9D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DCCC1B1168CC11F00EEEA9D /* Foundation.framework */; };
-		1DCCC1C7168CC11F00EEEA9D /* libDLIntrospection.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DCCC1AE168CC11F00EEEA9D /* libDLIntrospection.a */; };
-		1DCCC1CD168CC11F00EEEA9D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1DCCC1CB168CC11F00EEEA9D /* InfoPlist.strings */; };
-		1DCCC1D0168CC11F00EEEA9D /* DLIntrospectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DCCC1CF168CC11F00EEEA9D /* DLIntrospectionTests.m */; };
 		1DCCC1DB168CEA8D00EEEA9D /* NSObject+DLIntrospection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DCCC1DA168CEA8D00EEEA9D /* NSObject+DLIntrospection.m */; };
+		A41FAB8C218AD6740048C4C0 /* DLIntrospectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A41FAB8B218AD6740048C4C0 /* DLIntrospectionTests.m */; };
+		A41FAB8E218AD6740048C4C0 /* libDLIntrospection.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DCCC1AE168CC11F00EEEA9D /* libDLIntrospection.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		1DCCC1C5168CC11F00EEEA9D /* PBXContainerItemProxy */ = {
+		A41FAB8F218AD6740048C4C0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1DCCC1A5168CC11F00EEEA9D /* Project object */;
 			proxyType = 1;
@@ -41,20 +36,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1D4479591694743800D23EC7 /* TestObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestObject.h; sourceTree = "<group>"; };
-		1D44795A1694743800D23EC7 /* TestObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestObject.m; sourceTree = "<group>"; };
-		1D44795C1694744F00D23EC7 /* DLIntrospection-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DLIntrospection-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		1DCCC1AE168CC11F00EEEA9D /* libDLIntrospection.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDLIntrospection.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DCCC1B1168CC11F00EEEA9D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		1DCCC1BF168CC11F00EEEA9D /* DLIntrospectionTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DLIntrospectionTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1DCCC1C0168CC11F00EEEA9D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		1DCCC1C2168CC11F00EEEA9D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		1DCCC1CA168CC11F00EEEA9D /* DLIntrospectionTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DLIntrospectionTests-Info.plist"; sourceTree = "<group>"; };
-		1DCCC1CC168CC11F00EEEA9D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		1DCCC1CE168CC11F00EEEA9D /* DLIntrospectionTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DLIntrospectionTests.h; sourceTree = "<group>"; };
-		1DCCC1CF168CC11F00EEEA9D /* DLIntrospectionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DLIntrospectionTests.m; sourceTree = "<group>"; };
 		1DCCC1D9168CEA8D00EEEA9D /* NSObject+DLIntrospection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+DLIntrospection.h"; sourceTree = "<group>"; };
 		1DCCC1DA168CEA8D00EEEA9D /* NSObject+DLIntrospection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+DLIntrospection.m"; sourceTree = "<group>"; };
+		A41FAB89218AD6740048C4C0 /* DLIntrospectionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DLIntrospectionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A41FAB8B218AD6740048C4C0 /* DLIntrospectionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DLIntrospectionTests.m; sourceTree = "<group>"; };
+		A41FAB8D218AD6740048C4C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,14 +54,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1DCCC1BB168CC11F00EEEA9D /* Frameworks */ = {
+		A41FAB86218AD6740048C4C0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DCCC1C1168CC11F00EEEA9D /* SenTestingKit.framework in Frameworks */,
-				1DCCC1C3168CC11F00EEEA9D /* UIKit.framework in Frameworks */,
-				1DCCC1C4168CC11F00EEEA9D /* Foundation.framework in Frameworks */,
-				1DCCC1C7168CC11F00EEEA9D /* libDLIntrospection.a in Frameworks */,
+				A41FAB8E218AD6740048C4C0 /* libDLIntrospection.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,7 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				1DCCC1B3168CC11F00EEEA9D /* DLIntrospection */,
-				1DCCC1C8168CC11F00EEEA9D /* DLIntrospectionTests */,
+				A41FAB8A218AD6740048C4C0 /* DLIntrospectionTests */,
 				1DCCC1B0168CC11F00EEEA9D /* Frameworks */,
 				1DCCC1AF168CC11F00EEEA9D /* Products */,
 			);
@@ -94,7 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				1DCCC1AE168CC11F00EEEA9D /* libDLIntrospection.a */,
-				1DCCC1BF168CC11F00EEEA9D /* DLIntrospectionTests.octest */,
+				A41FAB89218AD6740048C4C0 /* DLIntrospectionTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -103,8 +88,6 @@
 			isa = PBXGroup;
 			children = (
 				1DCCC1B1168CC11F00EEEA9D /* Foundation.framework */,
-				1DCCC1C0168CC11F00EEEA9D /* SenTestingKit.framework */,
-				1DCCC1C2168CC11F00EEEA9D /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -114,38 +97,17 @@
 			children = (
 				1DCCC1D9168CEA8D00EEEA9D /* NSObject+DLIntrospection.h */,
 				1DCCC1DA168CEA8D00EEEA9D /* NSObject+DLIntrospection.m */,
-				1DCCC1B4168CC11F00EEEA9D /* Supporting Files */,
 			);
 			path = DLIntrospection;
 			sourceTree = "<group>";
 		};
-		1DCCC1B4168CC11F00EEEA9D /* Supporting Files */ = {
+		A41FAB8A218AD6740048C4C0 /* DLIntrospectionTests */ = {
 			isa = PBXGroup;
 			children = (
-				1D44795C1694744F00D23EC7 /* DLIntrospection-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		1DCCC1C8168CC11F00EEEA9D /* DLIntrospectionTests */ = {
-			isa = PBXGroup;
-			children = (
-				1D4479591694743800D23EC7 /* TestObject.h */,
-				1D44795A1694743800D23EC7 /* TestObject.m */,
-				1DCCC1CE168CC11F00EEEA9D /* DLIntrospectionTests.h */,
-				1DCCC1CF168CC11F00EEEA9D /* DLIntrospectionTests.m */,
-				1DCCC1C9168CC11F00EEEA9D /* Supporting Files */,
+				A41FAB8B218AD6740048C4C0 /* DLIntrospectionTests.m */,
+				A41FAB8D218AD6740048C4C0 /* Info.plist */,
 			);
 			path = DLIntrospectionTests;
-			sourceTree = "<group>";
-		};
-		1DCCC1C9168CC11F00EEEA9D /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				1DCCC1CA168CC11F00EEEA9D /* DLIntrospectionTests-Info.plist */,
-				1DCCC1CB168CC11F00EEEA9D /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,24 +130,23 @@
 			productReference = 1DCCC1AE168CC11F00EEEA9D /* libDLIntrospection.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		1DCCC1BE168CC11F00EEEA9D /* DLIntrospectionTests */ = {
+		A41FAB88218AD6740048C4C0 /* DLIntrospectionTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1DCCC1D6168CC11F00EEEA9D /* Build configuration list for PBXNativeTarget "DLIntrospectionTests" */;
+			buildConfigurationList = A41FAB91218AD6740048C4C0 /* Build configuration list for PBXNativeTarget "DLIntrospectionTests" */;
 			buildPhases = (
-				1DCCC1BA168CC11F00EEEA9D /* Sources */,
-				1DCCC1BB168CC11F00EEEA9D /* Frameworks */,
-				1DCCC1BC168CC11F00EEEA9D /* Resources */,
-				1DCCC1BD168CC11F00EEEA9D /* ShellScript */,
+				A41FAB85218AD6740048C4C0 /* Sources */,
+				A41FAB86218AD6740048C4C0 /* Frameworks */,
+				A41FAB87218AD6740048C4C0 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				1DCCC1C6168CC11F00EEEA9D /* PBXTargetDependency */,
+				A41FAB90218AD6740048C4C0 /* PBXTargetDependency */,
 			);
 			name = DLIntrospectionTests;
 			productName = DLIntrospectionTests;
-			productReference = 1DCCC1BF168CC11F00EEEA9D /* DLIntrospectionTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productReference = A41FAB89218AD6740048C4C0 /* DLIntrospectionTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -195,6 +156,13 @@
 			attributes = {
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "Denis Lebedev";
+				TargetAttributes = {
+					A41FAB88218AD6740048C4C0 = {
+						CreatedOnToolsVersion = 10.1;
+						DevelopmentTeam = RJXPJ9T4QP;
+						ProvisioningStyle = Automatic;
+					};
+				};
 			};
 			buildConfigurationList = 1DCCC1A8168CC11F00EEEA9D /* Build configuration list for PBXProject "DLIntrospection" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -209,37 +177,20 @@
 			projectRoot = "";
 			targets = (
 				1DCCC1AD168CC11F00EEEA9D /* DLIntrospection */,
-				1DCCC1BE168CC11F00EEEA9D /* DLIntrospectionTests */,
+				A41FAB88218AD6740048C4C0 /* DLIntrospectionTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		1DCCC1BC168CC11F00EEEA9D /* Resources */ = {
+		A41FAB87218AD6740048C4C0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DCCC1CD168CC11F00EEEA9D /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		1DCCC1BD168CC11F00EEEA9D /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1DCCC1AA168CC11F00EEEA9D /* Sources */ = {
@@ -250,35 +201,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1DCCC1BA168CC11F00EEEA9D /* Sources */ = {
+		A41FAB85218AD6740048C4C0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DCCC1D0168CC11F00EEEA9D /* DLIntrospectionTests.m in Sources */,
-				1D44795B1694743800D23EC7 /* TestObject.m in Sources */,
+				A41FAB8C218AD6740048C4C0 /* DLIntrospectionTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		1DCCC1C6168CC11F00EEEA9D /* PBXTargetDependency */ = {
+		A41FAB90218AD6740048C4C0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 1DCCC1AD168CC11F00EEEA9D /* DLIntrospection */;
-			targetProxy = 1DCCC1C5168CC11F00EEEA9D /* PBXContainerItemProxy */;
+			targetProxy = A41FAB8F218AD6740048C4C0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		1DCCC1CB168CC11F00EEEA9D /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1DCCC1CC168CC11F00EEEA9D /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1DCCC1D1168CC11F00EEEA9D /* Debug */ = {
@@ -333,7 +272,7 @@
 			buildSettings = {
 				DSTROOT = /tmp/DLIntrospection.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "DLIntrospection-Prefix.pch";
+				GCC_PREFIX_HEADER = "";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -345,48 +284,117 @@
 			buildSettings = {
 				DSTROOT = /tmp/DLIntrospection.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "DLIntrospection-Prefix.pch";
+				GCC_PREFIX_HEADER = "";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
-		1DCCC1D7168CC11F00EEEA9D /* Debug */ = {
+		A41FAB92218AD6740048C4C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "DLIntrospection-Prefix.pch";
-				INFOPLIST_FILE = "DLIntrospectionTests/DLIntrospectionTests-Info.plist";
-				OTHER_LDFLAGS = (
-					"-all_load",
-					"-ObjC",
-				);
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = RJXPJ9T4QP;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				HEADER_SEARCH_PATHS = "../DLIntrospection/**";
+				INFOPLIST_FILE = DLIntrospectionTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = "-3.DLIntrospectionTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		1DCCC1D8168CC11F00EEEA9D /* Release */ = {
+		A41FAB93218AD6740048C4C0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "DLIntrospection-Prefix.pch";
-				INFOPLIST_FILE = "DLIntrospectionTests/DLIntrospectionTests-Info.plist";
-				OTHER_LDFLAGS = (
-					"-all_load",
-					"-ObjC",
-				);
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = RJXPJ9T4QP;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				HEADER_SEARCH_PATHS = "../DLIntrospection/**";
+				INFOPLIST_FILE = DLIntrospectionTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = "-3.DLIntrospectionTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -411,11 +419,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1DCCC1D6168CC11F00EEEA9D /* Build configuration list for PBXNativeTarget "DLIntrospectionTests" */ = {
+		A41FAB91218AD6740048C4C0 /* Build configuration list for PBXNativeTarget "DLIntrospectionTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1DCCC1D7168CC11F00EEEA9D /* Debug */,
-				1DCCC1D8168CC11F00EEEA9D /* Release */,
+				A41FAB92218AD6740048C4C0 /* Debug */,
+				A41FAB93218AD6740048C4C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
